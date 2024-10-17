@@ -6,17 +6,21 @@
 </head>
 
 <body>
-    <form id="form1" onsubmit="showAlertName()">
+    <form id="form1" onsubmit="showAlertName(event)">
         Nama depan: <input type="text" name="depan" value="Messi"><br>
         Nama belakang: <input type="text" name="belakang" value="Ronaldo"><br>
         <input type="submit" value="Submit">
     </form>
 
     <script>
-        function showAlertName() {
-            // lengkapi fungsi ini untuk dapat menampilkan alert yang berisikan
-            // nama depan dan nama belakang sesuai dengan yang diinputkan
-            // pada input
+        // lengkapi fungsi ini untuk dapat menampilkan alert yang berisikan
+        // nama depan dan nama belakang sesuai dengan yang diinputkan
+        // pada input
+        function showAlertName(event) {
+            event.preventDefault();
+            const firstName = document.forms["form1"]["depan"].value;
+            const lastName = document.forms["form1"]["belakang"].value;
+            alert(`Nama: ${firstName} ${lastName}`);
         }
     </script>
 </body>

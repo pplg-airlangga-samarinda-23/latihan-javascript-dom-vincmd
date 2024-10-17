@@ -5,7 +5,8 @@
     <title>Soal 4</title>
 
     <style>
-        label, input {
+        label,
+        input {
             display: block;
         }
     </style>
@@ -13,21 +14,24 @@
 
 <body>
     <p>Masukkan nilai diameter untuk menghitung volume bola</p>
-    <form action="" method="post" id="form">
+    <form action="" method="post" id="form" onsubmit="calculateVolume(event)">
         <label for="diameter">Diameter</label>
-        <input type="text" name="diameter" id="diameter" required>
-        
+        <input type="number" name="diameter" id="diameter" required>
+
         <label for="volume">Volume</label>
-        <input type="text" name="volume" id="volume">
-        
+        <input type="text" name="volume" id="volume" readonly>
+
         <input type="submit" value="Hitung" id="submit">
     </form>
 
     <script>
-        // Tambahkan skrip Javascript untuk menampilkan volume bola
-        // berdasarkan nilai diameter yang dimasukkan.
-        // Nilai volume akan muncul pada isian Volume setelah tombol
-        // hitung ditekan.
+        function calculateVolume(event) {
+            event.preventDefault();
+            const diameter = parseFloat(document.getElementById('diameter').value);
+            const radius = diameter / 2;
+            const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+            document.getElementById('volume').value = volume.toFixed(2);
+        }
     </script>
 </body>
 
